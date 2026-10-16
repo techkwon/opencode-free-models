@@ -1,0 +1,62 @@
+[
+  {
+    "alias": "deepseek",
+    "model": "deepseek-v4.1-flash-free",
+    "ok": true,
+    "answer": "금새 → 금세\n뵈요 → 봬요\n몇일 → 며칠",
+    "error": "",
+    "seconds": 26.5,
+    "tokens": {
+      "input": 2487,
+      "output": 25
+    }
+  },
+  {
+    "alias": "longcat",
+    "model": "longcat-2.5-preview-free",
+    "ok": true,
+    "answer": "금새 → 금세\n뵈요 → 봐요\n몇일 → 며칠",
+    "error": "",
+    "seconds": 30.1,
+    "tokens": {
+      "input": 4075,
+      "output": 32
+    }
+  },
+  {
+    "alias": "muse",
+    "model": "muse-spark-1.3-contributor-free",
+    "ok": true,
+    "answer": "금새 → 금세\n뵈요 → 봬요\n몇일 → 며칠",
+    "error": "",
+    "seconds": 29.0,
+    "tokens": {
+      "input": 4086,
+      "output": 31
+    }
+  },
+  {
+    "alias": "mimo",
+    "model": "mimo-v2.6-flash-free",
+    "ok": true,
+    "answer": "금새 → 금세\n몇일 → 며칠",
+    "error": "",
+    "seconds": 31.9,
+    "tokens": {
+      "input": 495,
+      "output": 15
+    }
+  },
+  {
+    "alias": "nemotron",
+    "model": "nemotron-3.5-super-vl-free",
+    "ok": true,
+    "answer": "금새 → 금세\n몇일 → 며칠",
+    "error": "",
+    "seconds": 25.8,
+    "tokens": {
+      "input": 4341,
+      "output": 12
+    }
+  }
+]

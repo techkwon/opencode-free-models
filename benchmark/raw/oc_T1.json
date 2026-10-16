@@ -1,0 +1,62 @@
+[
+  {
+    "alias": "deepseek",
+    "model": "deepseek-v4.1-flash-free",
+    "ok": true,
+    "answer": "```python\ndef second_largest(nums):\n    unique = sorted(set(nums), reverse=True)\n    return unique[1] if len(unique) >= 2 else None\n```",
+    "error": "",
+    "seconds": 11.1,
+    "tokens": {
+      "input": 4243,
+      "output": 38
+    }
+  },
+  {
+    "alias": "longcat",
+    "model": "longcat-2.5-preview-free",
+    "ok": true,
+    "answer": "```python\ndef second_largest(nums):\n    first = second = None\n    for n in nums:\n        if first is None or n > first:\n            second = first\n            first = n\n        elif n != first and (second is None or n > second):\n            second = n\n    return second\n```",
+    "error": "",
+    "seconds": 17.7,
+    "tokens": {
+      "input": 3518,
+      "output": 71
+    }
+  },
+  {
+    "alias": "muse",
+    "model": "muse-spark-1.3-contributor-free",
+    "ok": true,
+    "answer": "```python\ndef second_largest(nums):\n    s = set(nums)\n    if len(s) < 2:\n        return None\n    m = max(s)\n    s.remove(m)\n    return max(s)\n```",
+    "error": "",
+    "seconds": 26.0,
+    "tokens": {
+      "input": 4056,
+      "output": 55
+    }
+  },
+  {
+    "alias": "mimo",
+    "model": "mimo-v2.6-flash-free",
+    "ok": true,
+    "answer": "```python\ndef second_largest(nums):\n    distinct = set(nums)\n    if len(distinct) < 2:\n        return None\n    distinct.remove(max(distinct))\n    return max(distinct)\n```",
+    "error": "",
+    "seconds": 13.4,
+    "tokens": {
+      "input": 455,
+      "output": 45
+    }
+  },
+  {
+    "alias": "nemotron",
+    "model": "nemotron-3.5-super-vl-free",
+    "ok": true,
+    "answer": "```python\ndef second_largest(nums):\n    distinct = set(nums)\n    if len(distinct) < 2:\n        return None\n    return sorted(distinct)[-2]\n```",
+    "error": "",
+    "seconds": 12.5,
+    "tokens": {
+      "input": 4325,
+      "output": 41
+    }
+  }
+]

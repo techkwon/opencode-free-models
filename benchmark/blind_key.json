@@ -1,0 +1,35 @@
+{
+  "T4": {
+    "A": "opus",
+    "B": "haiku",
+    "C": "deepseek",
+    "D": "longcat",
+    "E": "mimo",
+    "F": "fable",
+    "G": "nemotron",
+    "H": "sonnet",
+    "I": "muse"
+  },
+  "T5": {
+    "A": "mimo",
+    "B": "haiku",
+    "C": "muse",
+    "D": "opus",
+    "E": "sonnet",
+    "F": "longcat",
+    "G": "deepseek",
+    "H": "nemotron",
+    "I": "fable"
+  },
+  "T6": {
+    "A": "nemotron",
+    "B": "deepseek",
+    "C": "longcat",
+    "D": "mimo",
+    "E": "muse",
+    "F": "opus",
+    "G": "fable",
+    "H": "sonnet",
+    "I": "haiku"
+  }
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "alias": "deepseek",
+    "model": "deepseek-v4.1-flash-free",
+    "ok": true,
+    "answer": "```python\ndef korean_number(n):\n    if n == 0:\n        return \"영\"\n    digits = \"일이삼사오육칠팔구\"\n    units = [\"\", \"십\", \"백\", \"천\"]\n\n    def read4(x):\n        s = \"\"\n        for i in range(3, -1, -1):\n            d = (x // (10 ** i)) % 10\n            if d:\n                s += (\"\" if d == 1 and i > 0 else digits[d - 1]) + units[i]\n        return s\n\n    man, rest = divmod(n, 10000)\n    result = \"\"\n    if man:\n        result += (\"만\" if man == 1 else read4(man) + \"만\")\n    result += read4(rest)\n    return result\n```",
+    "error": "",
+    "seconds": 26.4,
+    "tokens": {
+      "input": 2620,
+      "output": 179
+    }
+  },
+  {
+    "alias": "longcat",
+    "model": "longcat-2.5-preview-free",
+    "ok": true,
+    "answer": "```python\ndef korean_number(n):\n    digits = [\"\", \"일\", \"이\", \"삼\", \"사\", \"오\", \"육\", \"칠\", \"팔\", \"구\"]\n    units = [\"\", \"십\", \"백\", \"천\"]\n\n    def convert_four(num):\n        if num == 0:\n            return \"\"\n        result = \"\"\n        str_num = str(num)\n        length = len(str_num)\n        for i, ch in enumerate(str_num):\n            d = int(ch)\n            if d == 0:\n                continue\n            pos = length - i - 1\n            if d == 1 and pos > 0:\n                result += units[pos]\n            else:\n                result += digits[d] + units[pos]\n        return result\n\n    if n == 0:\n        return \"영\"\n\n    upper = n // 10000\n    lower = n % 10000\n    result = convert_four(upper) + \"만\" + convert_four(lower) if upper else convert_four(lower)\n    return result\n```",
+    "error": "",
+    "seconds": 29.5,
+    "tokens": {
+      "input": 3365,
+      "output": 235
+    }
+  },
+  {
+    "alias": "muse",
+    "model": "muse-spark-1.3-contributor-free",
+    "ok": true,
+    "answer": "```python\ndef korean_number(n):\n    if n == 0:\n        return \"영\"\n    d = [\"\", \"일\", \"이\", \"삼\", \"사\", \"오\", \"육\", \"칠\", \"팔\", \"구\"]\n    u = [\"\", \"십\", \"백\", \"천\"]\n\n    def part(x):\n        s = \"\"\n        for i in (3, 2, 1, 0):\n            v = (x // (10 ** i)) % 10\n            if v == 0:\n                continue\n            if v == 1 and i > 0:\n                s += u[i]\n            else:\n                s += d[v] + u[i]\n        return s\n\n    hi = n // 10000\n    lo = n % 10000\n    r = \"\"\n    if hi:\n        r += (\"만\" if hi == 1 else part(hi) + \"만\")\n    if lo:\n        r += part(lo)\n    return r\n```",
+    "error": "",
+    "seconds": 35.5,
+    "tokens": {
+      "input": 4219,
+      "output": 224
+    }
+  },
+  {
+    "alias": "mimo",
+    "model": "mimo-v2.6-flash-free",
+    "ok": true,
+    "answer": "```python\ndef korean_number(n):\n    digits = [\"\", \"일\", \"이\", \"삼\", \"사\", \"오\", \"육\", \"칠\", \"팔\", \"구\"]\n    units = [\"\", \"십\", \"백\", \"천\"]\n\n    def read_four(num):\n        result = \"\"\n        for i, unit in enumerate(units):\n            d = (num // (10 ** i)) % 10\n            if d:\n                result = digits[d] + unit + result\n        return result\n\n    if n == 0:\n        return \"영\"\n\n    upper = n // 10000\n    lower = n % 10000\n    result = \"\"\n    if upper:\n        result += read_four(upper) + \"만\"\n    if lower:\n        result += read_four(lower)\n    return result\n```",
+    "error": "",
+    "seconds": 51.0,
+    "tokens": {
+      "input": 663,
+      "output": 184
+    }
+  },
+  {
+    "alias": "nemotron",
+    "model": "nemotron-3.5-super-vl-free",
+    "ok": true,
+    "answer": "```python\ndef korean_number(n):\n    if n == 0:\n        return \"영\"\n    digits = [\"\", \"일\", \"이\", \"삼\", \"사\", \"오\", \"육\", \"칠\", \"팔\", \"구\"]\n    units = [\"천\", \"백\", \"십\", \"\"]\n\n    def read_group(num):\n        parts = []\n        for i, unit in enumerate(units):\n            d = (num // (10 ** (3 - i))) % 10\n            if d == 0:\n                continue\n            parts.append(unit if d == 1 and unit else digits[d] + unit)\n        return \"\".join(parts)\n\n    upper, lower = divmod(n, 10000)\n    result = \"\"\n    if upper:\n        result += read_group(upper) + \"만\"\n    if lower:\n        result += read_group(lower)\n    return result\n```",
+    "error": "",
+    "seconds": 24.1,
+    "tokens": {
+      "input": 4516,
+      "output": 199
+    }
+  }
+]

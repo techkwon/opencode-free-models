@@ -1,0 +1,62 @@
+[
+  {
+    "alias": "deepseek",
+    "model": "deepseek-v4.1-flash-free",
+    "ok": true,
+    "answer": "1) 1446년\n2) 84\n3) 1024",
+    "error": "",
+    "seconds": 16.1,
+    "tokens": {
+      "input": 4259,
+      "output": 18
+    }
+  },
+  {
+    "alias": "longcat",
+    "model": "longcat-2.5-preview-free",
+    "ok": true,
+    "answer": "1) 1446년\n2) 84\n3) 1024",
+    "error": "",
+    "seconds": 19.7,
+    "tokens": {
+      "input": 4046,
+      "output": 25
+    }
+  },
+  {
+    "alias": "muse",
+    "model": "muse-spark-1.3-contributor-free",
+    "ok": true,
+    "answer": "1) 1446년\n2) 84\n3) 1024",
+    "error": "",
+    "seconds": 18.8,
+    "tokens": {
+      "input": 4070,
+      "output": 27
+    }
+  },
+  {
+    "alias": "mimo",
+    "model": "mimo-v2.6-flash-free",
+    "ok": true,
+    "answer": "1) 1446년\n2) 84\n3) 1024",
+    "error": "",
+    "seconds": 17.9,
+    "tokens": {
+      "input": 3032,
+      "output": 24
+    }
+  },
+  {
+    "alias": "nemotron",
+    "model": "nemotron-3.5-super-vl-free",
+    "ok": true,
+    "answer": "1) 1446\n2) 84\n3) 1024",
+    "error": "",
+    "seconds": 20.5,
+    "tokens": {
+      "input": 4334,
+      "output": 23
+    }
+  }
+]
