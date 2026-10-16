@@ -59,4 +59,5 @@ jobs:
         # but does not fail the build.
         continue-on-error: true
         shell: bash
-        run: python scripts/ask_opencode.py -m deepseek --timeout 240 "Answer with one number only: 1+1"
+        run: |
+          python scripts/ask_opencode.py -m deepseek --timeout 240 "Answer with one number only: 1+1"
