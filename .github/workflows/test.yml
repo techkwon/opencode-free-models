@@ -1,0 +1,62 @@
+name: test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  unit:
+    name: unit · ${{ matrix.os }} · py${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-latest, python: "3.9" }
+          - { os: ubuntu-latest, python: "3.13" }
+          - { os: macos-latest, python: "3.13" }
+          - { os: windows-latest, python: "3.13" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Offline unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Model list
+        run: python scripts/ask_opencode.py --list
+
+  opencode:
+    name: opencode · ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install opencode CLI
+        run: npm install -g opencode-ai
+      - name: Environment and isolation check
+        run: python scripts/ask_opencode.py --check
+      - name: Guards stop before any model call (exit 2)
+        shell: bash
+        run: |
+          set +e
+          python scripts/ask_opencode.py -m deepseek "연락처 010-1234-5678"; a=$?
+          python scripts/ask_opencode.py -m muse "hello"; b=$?
+          echo "pii=$a shared=$b"
+          test "$a" = 2 && test "$b" = 2
+      - name: Real call to a free model
+        # The Zen free tier may refuse or rate-limit CI machines, so this step reports
+        # but does not fail the build.
+        continue-on-error: true
+        shell: bash
+        run: python scripts/ask_opencode.py -m deepseek --timeout 240 "Answer with one number only: 1+1"

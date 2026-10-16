@@ -1,5 +1,7 @@
 # opencode-free-models
 
+[![test](https://github.com/techkwon/opencode-free-models/actions/workflows/test.yml/badge.svg)](https://github.com/techkwon/opencode-free-models/actions/workflows/test.yml)
+
 Claude Code가 **OpenCode Zen의 무료 AI 모델 5종**을 불러 쓸 수 있게 해 주는 스킬입니다.
 "딥시크한테도 물어봐", "무료 모델끼리 비교해 봐"라고 말하면 Claude가 대신 묻고 답을 정리해 줍니다.
 요금은 들지 않습니다.
